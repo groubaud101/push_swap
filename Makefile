@@ -18,7 +18,7 @@ NAME	=	push_swap
 DIR_L	=	./libft/
 DIR_S	=	./
 
-SPUSW	=	push_swap free init_pusw $(TEST)
+SPUSW	=	$(TEST) push_swap free init_pusw move_a move_b move_both
 
 INC_L	=	$(DIR_L)include/
 H_INC	=	libft ft_printf get_next_line

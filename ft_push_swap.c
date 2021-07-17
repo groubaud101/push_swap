@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/16 21:57:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/17 18:49:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_check_error(char **tab)
 		tab++;
 	}
 	return (CHECK_OK);
-} // il reste à détecter l'overflow, faut modifier un atoi
+}
 
 void	ft_push_swap(char **tab)
 {
@@ -46,7 +46,7 @@ void	ft_push_swap(char **tab)
 	{
 		return (ft_putstr("Error\n")) ;
 	}
-	ptr = (t_pusw){0, 0, NULL, NULL, NULL};
+	ptr = (t_pusw){0, 0, NULL, NULL, NULL, &(ptr.tab)};
 	if (ft_init_pusw(&ptr, tab) == CHECK_ERR)
 		return (ft_putstr("Error\n"));
 	ft_put_pusw(&ptr);
