@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 21:20:46 by user42            #+#    #+#             */
-/*   Updated: 2021/07/16 21:54:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/19 19:51:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_put_move(t_move *lst)
 		ft_printf("NULL\n");
 	while (lst)
 	{
-		ft_printf("move %i : |%i|\n", i, lst->num);
+		ft_printf("move %i : |%s|\n", i, lst->move);
 		i++;
 		lst = lst->next;
 	}
@@ -71,4 +71,5 @@ void	ft_put_pusw(t_pusw *ptr)
 		else
 			ft_printf("\t%6s\n", "");
 	}
+	ft_printf("\n");
 }

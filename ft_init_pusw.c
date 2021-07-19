@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/17 18:33:53 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/17 19:51:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,6 @@ static int	ft_really_zero(char *nbr)
 	return (CHECK_ERR);
 }
 
-int		ft_tab_move(t_pusw *ptr)
-{
-	SA = &ft_sa;
-	SB = &ft_sb;
-	SS = &ft_ss;
-	PA = &ft_pa;
-	PB = &ft_pb;
-	RA = &ft_ra;
-	RB = &ft_rb;
-	RR = &ft_rr;
-	RRA = &ft_rra;
-	RRB = &ft_rrb;
-	RRR = &ft_rrr;
-}
-
 int	ft_init_pusw(t_pusw *ptr, char **tab)
 {
 	t_stack	*tmp;
@@ -78,7 +63,7 @@ int	ft_init_pusw(t_pusw *ptr, char **tab)
 	while (tab[ptr->size_a])
 	{
 		nb = ft_atoi_no_overflow(tab[ptr->size_a]);
-		if (nb == 0 && ft_rSeally_zero(tab[ptr->size_a]) == CHECK_ERR)
+		if (nb == 0 && ft_really_zero(tab[ptr->size_a]) == CHECK_ERR)
 			return (ft_clear_stack(&A));
 		tmp = ft_lstnew_pusw(nb);
 		if (tmp == NULL)

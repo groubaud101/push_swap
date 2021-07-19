@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 15:31:00 by user42            #+#    #+#             */
-/*   Updated: 2021/07/17 17:07:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/17 19:32:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 int		ft_ss(t_pusw *ptr)
 {
-	SA;
-	SB;
+	if (ft_sa(ptr) || ft_sb(ptr))
+		return (CHECK_OK);
+	return (CHECK_ERR);
 }
 
 int		ft_rr(t_pusw *ptr)
 {
-	RA;
-	RB;
+	if (ft_ra(ptr) || ft_rb(ptr))
+		return (CHECK_OK);
+	return (CHECK_ERR);
 }
 
 int		ft_rrr(t_pusw *ptr)
 {
-	RRA;
-	RRB;
+	if (ft_rra(ptr) || ft_rrb(ptr))
+		return (CHECK_OK);
+	return (CHECK_ERR);
 }

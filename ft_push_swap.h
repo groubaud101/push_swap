@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/17 18:31:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/17 19:51:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 typedef struct s_stack
 {
 	int				nb;
+	int				position;
 	struct s_stack	*next;
 }t_stack;
 
@@ -53,7 +54,6 @@ typedef struct s_pusw
 	t_stack		*a;
 	t_stack		*b;
 	t_move		*mv;
-	int			(*tab[11])(struct s_pusw *ptr);
 }t_pusw;
 
 void	ft_free_tab(char **tab);
