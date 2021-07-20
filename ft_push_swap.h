@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 11:56:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 23:04:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,6 @@
 
 # define CHECK_OK 1
 # define CHECK_ERR 0
-
-# define SA ptr->tab[0]
-# define SB ptr->tab[1]
-# define SS ptr->tab[2]
-# define PA ptr->tab[3]
-# define PB ptr->tab[4]
-# define RA ptr->tab[5]
-# define RB ptr->tab[6]
-# define RR ptr->tab[7]
-# define RRA ptr->tab[8]
-# define RRB ptr->tab[9]
-# define RRR ptr->tab[10]
-
-# define A ptr->a
-# define B ptr->b
-# define MV ptr->mv
 
 typedef struct s_stack
 {
@@ -49,6 +33,7 @@ typedef struct s_move
 
 typedef struct s_pusw
 {
+	int			verbose;
 	size_t		size_a;
 	size_t		size_b;
 	t_stack		*a;
@@ -56,14 +41,20 @@ typedef struct s_pusw
 	t_move		*mv;
 }t_pusw;
 
+void	ft_push_swap(char **tab, int verbose);
+
+int		ft_check_error(char **tab);
+int		ft_check_verbose(int ac, char **av);
+
 void	ft_free_tab(char **tab);
 int		ft_clear(t_pusw *ptr, int error);
 
 int		ft_init_pusw(t_pusw *ptr, char **tab);
 int		ft_tab_move(t_pusw *ptr);
 
-int		ft_lstadd_move(t_pusw *ptr, const char *str);
+int		ft_lstadd_move(t_move **mv, const char *str);
 void	ft_put_move(t_move *mv);
+void	ft_put_last_move(t_move *mv);
 
 int		ft_sa(t_pusw *ptr);
 int		ft_sb(t_pusw *ptr);
@@ -82,6 +73,7 @@ int		ft_rrr(t_pusw *ptr);
 #if TEST
 # include <stdio.h>
 void	ft_putlst(t_stack *lst);
+void	ft_test_move(t_pusw *ptr);
 void	ft_put_pusw(t_pusw *ptr);
 #endif
 

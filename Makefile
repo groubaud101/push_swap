@@ -19,7 +19,7 @@ DIR_L	=	./libft/
 DIR_S	=	./
 
 SPUSW	=	$(TEST) push_swap free init_pusw move_a move_b move_both \
-			move
+			move check
 
 INC_L	=	$(DIR_L)include/
 H_INC	=	libft ft_printf get_next_line
@@ -34,7 +34,7 @@ OBJS	=	$(addprefix $(DIR_S)ft_, $(addsuffix .o, $(SPUSW)))
 
 ## commande
 
-all		:	lib $(NAME)
+all		:	$(NAME)
 
 .c.o	:	$(SRCS)
 			$(CC) $(CFLAGS) -I$(INC_L) -c -o $@ $<
@@ -44,6 +44,7 @@ lib		:
 			cp $(DIR_L)libft.a ${DIR_S}
 
 $(NAME)	:	$(OBJS) $(INCLUDE)
+			make lib
 			$(CC) $(CFLAGS) -I$(INC_L) $(OBJS) $(LIB) -o $@
 
 clean	:

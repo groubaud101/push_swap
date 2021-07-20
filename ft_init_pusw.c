@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 11:56:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 17:47:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_init_pusw(t_pusw *ptr, char **tab)
 		tmp = ft_lstnew_pusw(nb);
 		if (tmp == NULL)
 			return (ft_clear(ptr, CHECK_ERR));
-		ft_lstadd_back_pusw(&A, tmp);
+		ft_lstadd_back_pusw(&ptr->a, tmp);
 		ptr->size_a++;
 	}
 	return (CHECK_OK);

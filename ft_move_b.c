@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:28:30 by user42            #+#    #+#             */
-/*   Updated: 2021/07/17 19:34:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 23:40:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,76 @@
 
 int	ft_sb(t_pusw *ptr)
 {
-	t_stack *tmp;
+	t_stack *second;
+	t_stack *first;
+	t_stack *third;
 
-	if (!B || !B->next)
+	if (!ptr->b || !ptr->b->next)
 		return (CHECK_ERR);
-	tmp = B;
-	B = tmp;
+	second = ptr->b;
+	first = ptr->b->next;
+	third = ptr->b->next->next;
+	ptr->b = first;
+	ptr->b->next = second;
+	ptr->b->next->next = third;
+	ft_lstadd_move(&ptr->mv, "sb");
+	if (ptr->verbose == 1)
+		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
 
 int	ft_pb(t_pusw *ptr)
 {
-	if (!B || !B->next)
+	t_stack	*tmp;
+
+	if (!ptr->a)
 		return (CHECK_ERR);
+	tmp = ptr->a->next;
+	ptr->a->next = ptr->b;
+	ptr->b = ptr->a;
+	ptr->a = tmp;
+	ft_lstadd_move(&ptr->mv, "pb");
+	if (ptr->verbose == 1)
+		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
 
 int	ft_rb(t_pusw *ptr)
 {
-	if (!B || !B->next)
+	t_stack	*tmp;
+	t_stack	*first;
+	
+	if (!ptr->b || !ptr->b->next)
 		return (CHECK_ERR);
+	tmp = ptr->b;
+	first = ptr->b->next;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = ptr->b;
+	ptr->b->next = NULL;
+	ptr->b = first;
+	ft_lstadd_move(&ptr->mv, "rb");
+	if (ptr->verbose == 1)
+		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
 
 int	ft_rrb(t_pusw *ptr)
 {
-	if (!B || !B->next)
+	t_stack	*ex_first;
+	t_stack	*last;
+	
+	if (!ptr->b || !ptr->b->next)
 		return (CHECK_ERR);
+	ex_first = ptr->b;
+	while (ptr->b->next->next)
+		ptr->b = ptr->b->next;
+	last = ptr->b->next;
+	ptr->b->next = NULL;
+	ptr->b = last;
+	ptr->b->next = ex_first;
+	ft_lstadd_move(&ptr->mv, "rrb");
+	if (ptr->verbose == 1)
+		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
