@@ -6,28 +6,12 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 21:20:46 by user42            #+#    #+#             */
-/*   Updated: 2021/07/19 19:51:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 12:02:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include "ft_printf.h"
-
-void	ft_put_move(t_move *lst)
-{
-	int		i;
-
-	i = 0;
-	if (lst == NULL)
-		ft_printf("NULL\n");
-	while (lst)
-	{
-		ft_printf("move %i : |%s|\n", i, lst->move);
-		i++;
-		lst = lst->next;
-	}
-	ft_printf("\n");
-}
 
 void	ft_put_stack(t_stack *lst)
 {
@@ -50,7 +34,9 @@ void	ft_put_pusw(t_pusw *ptr)
 	t_stack	*tmp_b;
 
 	ft_printf("Move :\n");
-	ft_put_move(ptr->mv);
+	if (!MV)
+		ft_printf("no move yet\n");
+	ft_put_move(MV);
 	tmp_a = A;
 	tmp_b = B;
 	ft_printf("\t%6c\t%6c\n", 'A', 'B');

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/17 19:51:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:56:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_stack
 
 typedef struct s_move
 {
-	char			move[4];
+	const char		*move;
 	struct s_move	*next;
 }t_move;
 
@@ -57,10 +57,13 @@ typedef struct s_pusw
 }t_pusw;
 
 void	ft_free_tab(char **tab);
-int		ft_clear_stack(t_stack **lst);
+int		ft_clear(t_pusw *ptr, int error);
 
 int		ft_init_pusw(t_pusw *ptr, char **tab);
 int		ft_tab_move(t_pusw *ptr);
+
+int		ft_lstadd_move(t_pusw *ptr, const char *str);
+void	ft_put_move(t_move *mv);
 
 int		ft_sa(t_pusw *ptr);
 int		ft_sb(t_pusw *ptr);

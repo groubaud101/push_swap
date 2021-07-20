@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:08:15 by user42            #+#    #+#             */
-/*   Updated: 2021/07/19 19:48:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 12:03:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_sa(t_pusw *ptr)
 	t_stack *tmp2;
 	t_stack *tmp3;
 
-	ft_printf("sa\n");
 	if (!A || !A->next)
 		return (CHECK_ERR);
 	tmp1 = A;
@@ -28,6 +27,7 @@ int	ft_sa(t_pusw *ptr)
 	A = tmp2;
 	A->next = tmp1;
 	A->next->next = tmp3;
+	ft_lstadd_move(ptr, "sa");
 	return (CHECK_OK);
 }
 
@@ -35,14 +35,13 @@ int	ft_pa(t_pusw *ptr)
 {
 	t_stack	*tmp;
 
-	ft_printf("pa\n");
 	if (!A)
 		return (CHECK_ERR);
 	tmp = A->next;
 	A->next = B;
 	B = A;
 	A = tmp;
-
+	ft_lstadd_move(ptr, "pa");
 	return (CHECK_OK);
 }
 
