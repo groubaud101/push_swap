@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 17:47:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/21 12:42:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,17 @@ int	ft_init_pusw(t_pusw *ptr, char **tab)
 	t_stack	*tmp;
 	int		nb;
 
-	while (tab[ptr->size_a])
+	while (*tab)
 	{
-		nb = ft_atoi_no_overflow(tab[ptr->size_a]);
-		if (nb == 0 && ft_really_zero(tab[ptr->size_a]) == CHECK_ERR)
+		nb = ft_atoi_no_overflow(*tab);
+		if (nb == 0 && ft_really_zero(*tab) == CHECK_ERR)
 			return (ft_clear(ptr, CHECK_ERR));
 		tmp = ft_lstnew_pusw(nb);
 		if (tmp == NULL)
 			return (ft_clear(ptr, CHECK_ERR));
 		ft_lstadd_back_pusw(&ptr->a, tmp);
 		ptr->size_a++;
+		tab++;
 	}
 	return (CHECK_OK);
 }

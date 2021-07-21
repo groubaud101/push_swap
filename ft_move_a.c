@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:08:15 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 23:39:59 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/21 00:10:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_pa(t_pusw *ptr)
 	ptr->b->next = ptr->a;
 	ptr->a = ptr->b;
 	ptr->b = tmp;
+	ptr->size_b--;
+	ptr->size_a++;
 	ft_lstadd_move(&ptr->mv, "pa");
 	if (ptr->verbose == 1)
 		ft_put_pusw(ptr);
