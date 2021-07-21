@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 21:20:46 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 12:44:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/21 15:01:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	ft_put_pusw(t_pusw *ptr)
 	{
 		if (tmp_a)
 		{
-			ft_printf("%*i", field, tmp_a->nb);
+			ft_printf("%*i(%2i)", field - 4, tmp_a->nb, tmp_a->location);
 			tmp_a = tmp_a->next;
 		}
 		else
 			ft_printf("%*s", field, "");
 		if (tmp_b)
 		{
-			ft_printf("\t%*i\n", field, tmp_b->nb);
+			ft_printf("\t%*i(%2i)\n", field - 4, tmp_b->nb, tmp_b->location);
 			tmp_b = tmp_b->next;
 		}
 		else

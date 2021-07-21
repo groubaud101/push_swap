@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_pusw.c                                     :+:      :+:    :+:   */
+/*   ft_fill_pusw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 12:42:59 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/21 18:11:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_stack	*ft_lstnew_pusw(int nb)
 	if (!lst)
 		return (NULL);
 	lst->nb = nb;
+	lst->location = -1;
 	lst->next = NULL;
 	return (lst);
 }
@@ -55,11 +56,12 @@ static int	ft_really_zero(char *nbr)
 	return (CHECK_ERR);
 }
 
-int	ft_init_pusw(t_pusw *ptr, char **tab)
+int	ft_fill_pusw(t_pusw *ptr, char **tab)
 {
 	t_stack	*tmp;
 	int		nb;
 
+	printf("ft_fill_pusw\n");
 	while (*tab)
 	{
 		nb = ft_atoi_no_overflow(*tab);
@@ -72,5 +74,8 @@ int	ft_init_pusw(t_pusw *ptr, char **tab)
 		ptr->size_a++;
 		tab++;
 	}
+	printf("ft_location\n");
+	if (ft_location(ptr) == CHECK_ERR)
+		return (ft_clear(ptr, CHECK_ERR));
 	return (CHECK_OK);
 }
