@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:13:42 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 23:14:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/21 18:19:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,6 @@ int	ft_lstadd_move(t_move **mv, const char *str)
 		return (CHECK_ERR);
 	ft_lstadd_back_move(mv, new);
 	return (CHECK_OK);
-}
-
-void	ft_put_last_move(t_move *mv)
-{
-	if (!mv)
-	{
-		printf("No move yet\n");
-		return ;
-	}
-	else
-		printf("Move :\n");
-	while (mv->next)
-		mv = mv->next;
-	ft_printf("%s\n", mv->move);
 }
 
 void	ft_put_move(t_move *mv)

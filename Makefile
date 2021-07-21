@@ -19,7 +19,7 @@ DIR_L	=	./libft/
 DIR_S	=	./
 
 SPUSW	=	$(TEST) push_swap free fill_pusw move_a move_b move_both \
-			move location
+			move location verbose algo
 
 INC_L	=	$(DIR_L)include/
 H_INC	=	libft ft_printf get_next_line

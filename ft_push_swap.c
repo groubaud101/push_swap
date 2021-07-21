@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 18:10:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/21 18:48:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static t_pusw	ft_init_pusw(t_pusw ptr, int verbose)
 	ptr.a = NULL;
 	ptr.b = NULL;
 	ptr.mv = NULL;
-	//ptr.index = NULL;
 	return (ptr);
 }
 
@@ -57,21 +56,22 @@ void	ft_push_swap(char **tab, int verbose)
 	if (ft_check_error(tab) == CHECK_ERR)
 		return (ft_putstr("Error\n"));
 	
-	// ptr = (t_pusw){verbose, 0, 0, NULL, NULL, NULL};
 	ptr = ft_init_pusw(ptr, verbose);
 	if (ft_fill_pusw(&ptr, tab) == CHECK_ERR)
 		return (ft_putstr("Error\n"));
 
-
-	ft_test_move(&ptr);
+	ft_algo(&ptr);
+	//ft_test_move(&ptr);
 	ft_put_pusw(&ptr);
+
+	ft_clear(&ptr, CHECK_OK);
 	//ft_put_move(ptr.mv);
 }
 
 static int	ft_error(void)
 {
 	ft_putstr("Error\n");
-	return (0);
+	return (CHECK_ERR);
 }
 
 int main(int ac, char **av)
