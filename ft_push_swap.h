@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 19:26:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/24 21:58:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ typedef struct s_pusw
 	int		verbose;
 	int		size_a;
 	int		size_b;
+	int		total_size;
 	t_stack	*a;
 	t_stack	*b;
+	t_stack	*last_a;
+	t_stack	*last_b;
 	t_move	*mv;
 	t_index	index;
 }t_pusw;
@@ -182,13 +185,48 @@ int		ft_rrr(t_pusw *ptr);
 **  Display the last move
 **  Then display the stacks a and b with the change
 */
-void	ft_put_pusw(t_pusw *ptr);
+void	ft_put_pusw(t_pusw *ptr, char *move);
 
 /*
 ** ft_algo.c
 **
+** ft_check_order :
+**  Check if stack_a is in the right order
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
 */
+int		ft_check_order(t_pusw *ptr);
 void	ft_algo(t_pusw *ptr);
+
+void	ft_algo_below_five(t_pusw *ptr);
+
+void	ft_algo_three(t_pusw *ptr);
+
+void	ft_algo_below_hundred(t_pusw *ptr);
+void	ft_algo_more_than_hundred(t_pusw *ptr);
+
+/*
+** ft_check_b.c
+**
+** ft_sa_check_sb :
+**
+**
+** ft_ra_check_rb :
+**
+**
+** ft_rra_check_rrb :
+**
+**
+**
+*/
 
 #define TEST 1
 #if TEST

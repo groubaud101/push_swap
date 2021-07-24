@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:08:15 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 00:10:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/24 20:28:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ int	ft_sa(t_pusw *ptr)
 	ptr->a = first;
 	ptr->a->next = second;
 	ptr->a->next->next = third;
-	ft_lstadd_move(&ptr->mv, "sa");
-	if (ptr->verbose == 1)
-		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
 
@@ -45,9 +42,6 @@ int	ft_pa(t_pusw *ptr)
 	ptr->b = tmp;
 	ptr->size_b--;
 	ptr->size_a++;
-	ft_lstadd_move(&ptr->mv, "pa");
-	if (ptr->verbose == 1)
-		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
 
@@ -65,9 +59,6 @@ int	ft_ra(t_pusw *ptr)
 	tmp->next = ptr->a;
 	ptr->a->next = NULL;
 	ptr->a = first;
-	ft_lstadd_move(&ptr->mv, "ra");
-	if (ptr->verbose == 1)
-		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }
 
@@ -85,8 +76,5 @@ int	ft_rra(t_pusw *ptr)
 	ptr->a->next = NULL;
 	ptr->a = last;
 	ptr->a->next = ex_first;
-	ft_lstadd_move(&ptr->mv, "rra");
-	if (ptr->verbose == 1)
-		ft_put_pusw(ptr);
 	return (CHECK_OK);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 18:11:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/24 21:59:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	ft_fill_pusw(t_pusw *ptr, char **tab)
 		ptr->size_a++;
 		tab++;
 	}
+	ptr->total_size = ptr->size_a;
 	printf("ft_location\n");
 	if (ft_location(ptr) == CHECK_ERR)
 		return (ft_clear(ptr, CHECK_ERR));

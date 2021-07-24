@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/23 19:28:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/24 21:55:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static t_pusw	ft_init_pusw(t_pusw ptr, int verbose)
 	ptr.size_b = 0;
 	ptr.a = NULL;
 	ptr.b = NULL;
+	ptr.last_a = NULL;
+	ptr.last_b = NULL;
 	ptr.mv = NULL;
 	return (ptr);
 }
@@ -62,7 +64,7 @@ void	ft_push_swap(char **tab, int verbose)
 
 	ft_algo(&ptr);
 	//ft_test_move(&ptr);
-	ft_put_pusw(&ptr);
+	ft_put_pusw(&ptr, NULL);
 
 	ft_clear(&ptr, CHECK_OK);
 	//ft_put_move(ptr.mv);
