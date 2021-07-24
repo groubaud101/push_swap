@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 18:48:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/23 19:28:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,12 @@ int main(int ac, char **av)
 		return (ft_error());
 	if (ac == 2 + verbose)
 	{
-		if (verbose == 1)
-			tab = ft_split(av[2], ' ');
-		else
-			tab = ft_split(av[1], ' ');
+		tab = ft_split(av[1 + verbose], ' ');
+		if (!tab || !tab[0])
+		{
+			ft_free_tab(tab);
+			return (ft_error());
+		}
 		ft_push_swap(tab, verbose);
 		ft_free_tab(tab);
 	}
