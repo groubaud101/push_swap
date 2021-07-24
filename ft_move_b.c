@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:28:30 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 20:17:55 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 00:21:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ int	ft_sb(t_pusw *ptr)
 	ptr->b = first;
 	ptr->b->next = second;
 	ptr->b->next->next = third;
-	ft_lstadd_move(&ptr->mv, "sb");
-	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, "sb");
+	if (third && third->next == NULL)
+		ptr->last_b = third;
 	return (CHECK_OK);
 }
 
@@ -41,9 +40,16 @@ int	ft_pb(t_pusw *ptr)
 	tmp = ptr->a->next;
 	ptr->a->next = ptr->b;
 	ptr->b = ptr->a;
+	if (!ptr->last_b)
+		ptr->last_b = ptr->b;
 	ptr->a = tmp;
 	ptr->size_a--;
 	ptr->size_b++;
+	if (!ptr->a)
+		ptr->last_a = NULL;
+	ft_lstadd_move(&ptr->mv, "pb");
+	if (ptr->verbose == 1)
+		ft_put_pusw(ptr, "pb");
 	return (CHECK_OK);
 }
 
@@ -60,6 +66,7 @@ int	ft_rb(t_pusw *ptr)
 		tmp = tmp->next;
 	tmp->next = ptr->b;
 	ptr->b->next = NULL;
+	ptr->last_b = ptr->b;
 	ptr->b = first;
 	return (CHECK_OK);
 }
@@ -76,6 +83,7 @@ int	ft_rrb(t_pusw *ptr)
 		ptr->b = ptr->b->next;
 	last = ptr->b->next;
 	ptr->b->next = NULL;
+	ptr->last_b = ptr->b;
 	ptr->b = last;
 	ptr->b->next = ex_first;
 	return (CHECK_OK);

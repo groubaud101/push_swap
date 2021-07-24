@@ -6,13 +6,13 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 20:28:31 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 20:36:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 00:19:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_sa_check_sb(t_pusw *ptr)
+void	ft_sa_check_sb(t_pusw *ptr)
 {
 	char	*move;
 
@@ -30,7 +30,7 @@ int	ft_sa_check_sb(t_pusw *ptr)
 		ft_put_pusw(ptr, move);
 }
 
-int	ft_ra_check_rb(t_pusw *ptr)
+void	ft_ra_check_rb(t_pusw *ptr)
 {
 	char	*move;
 
@@ -48,7 +48,7 @@ int	ft_ra_check_rb(t_pusw *ptr)
 		ft_put_pusw(ptr, move);
 }
 
-int	ft_rra_check_rrb(t_pusw *ptr)
+void	ft_rra_check_rrb(t_pusw *ptr)
 {
 	char	*move;
 
@@ -59,8 +59,8 @@ int	ft_rra_check_rrb(t_pusw *ptr)
 		move = "rrr";	
 	}
 	else
-		move = "ra";
-	ft_ra(ptr);
+		move = "rra";
+	ft_rra(ptr);
 	ft_lstadd_move(&ptr->mv, move);
 	if (ptr->verbose == 1)
 		ft_put_pusw(ptr, move);

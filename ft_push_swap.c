@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 21:55:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 00:39:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,14 @@ void	ft_push_swap(char **tab, int verbose)
 		return (ft_putstr("Error\n"));
 
 	ft_algo(&ptr);
+	DEB("apres ft_algo\n");
 	//ft_test_move(&ptr);
 	ft_put_pusw(&ptr, NULL);
+	DEB("apres affichage\n");
 
 	ft_clear(&ptr, CHECK_OK);
+	DEB("apres ft_clear\n");
+
 	//ft_put_move(ptr.mv);
 }
 

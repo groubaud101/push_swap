@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:08:15 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 20:28:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/24 22:24:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_sa(t_pusw *ptr)
 	ptr->a = first;
 	ptr->a->next = second;
 	ptr->a->next->next = third;
+	if (third && third->next == NULL)
+		ptr->last_a = third;
 	return (CHECK_OK);
 }
 
@@ -42,6 +44,11 @@ int	ft_pa(t_pusw *ptr)
 	ptr->b = tmp;
 	ptr->size_b--;
 	ptr->size_a++;
+	if (!ptr->b)
+		ptr->last_b = NULL;
+	ft_lstadd_move(&ptr->mv, "pa");
+	if (ptr->verbose == 1)
+		ft_put_pusw(ptr, "pa");
 	return (CHECK_OK);
 }
 
@@ -58,6 +65,7 @@ int	ft_ra(t_pusw *ptr)
 		tmp = tmp->next;
 	tmp->next = ptr->a;
 	ptr->a->next = NULL;
+	ptr->last_a = ptr->a;
 	ptr->a = first;
 	return (CHECK_OK);
 }
@@ -74,6 +82,7 @@ int	ft_rra(t_pusw *ptr)
 		ptr->a = ptr->a->next;
 	last = ptr->a->next;
 	ptr->a->next = NULL;
+	ptr->last_a = ptr->a->next;
 	ptr->a = last;
 	ptr->a->next = ex_first;
 	return (CHECK_OK);

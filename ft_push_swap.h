@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 21:58:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 00:40:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,7 +211,7 @@ void	ft_algo_below_five(t_pusw *ptr);
 void	ft_algo_three(t_pusw *ptr);
 
 void	ft_algo_below_hundred(t_pusw *ptr);
-void	ft_algo_more_than_hundred(t_pusw *ptr);
+void	ft_algo_above_hundred(t_pusw *ptr);
 
 /*
 ** ft_check_b.c
@@ -228,10 +228,27 @@ void	ft_algo_more_than_hundred(t_pusw *ptr);
 **
 */
 
+void	ft_sa_check_sb(t_pusw *ptr);
+void	ft_ra_check_rb(t_pusw *ptr);
+void	ft_rra_check_rrb(t_pusw *ptr);
+
+
+void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk);
+void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
+
+
 #define TEST 1
 #if TEST
 # include <stdio.h>
 void	ft_test_move(t_pusw *ptr);
+
+# define DEBUG 1
+# if DEBUG
+#  define DEB printf
+# else
+#  define DEB //a
+# endif
+
 #endif
 
 #endif

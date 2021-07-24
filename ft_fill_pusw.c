@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 21:59:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 00:37:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,23 @@ static int	ft_really_zero(char *nbr)
 	return (CHECK_ERR);
 }
 
+static t_stack *ft_last_a(t_stack *tmp)
+{
+	if (!tmp)
+		return (NULL);
+	if (!tmp->next)
+		return (tmp);
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
+
 int	ft_fill_pusw(t_pusw *ptr, char **tab)
 {
 	t_stack	*tmp;
 	int		nb;
 
-	printf("ft_fill_pusw\n");
+	DEB("ft_fill_pusw\n");
 	while (*tab)
 	{
 		nb = ft_atoi_no_overflow(*tab);
@@ -75,7 +86,8 @@ int	ft_fill_pusw(t_pusw *ptr, char **tab)
 		tab++;
 	}
 	ptr->total_size = ptr->size_a;
-	printf("ft_location\n");
+	ptr->last_a = ft_last_a(ptr->a);
+	DEB("ft_location\n");
 	if (ft_location(ptr) == CHECK_ERR)
 		return (ft_clear(ptr, CHECK_ERR));
 	return (CHECK_OK);
