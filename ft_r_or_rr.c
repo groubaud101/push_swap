@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 22:37:22 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 00:36:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:16:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
 	int		i;
 	int		team_rr;
 
-	i = 0;
-	DEB("START ra or rra\n");
+	i = 1;
+	DEB("START ra or rra_chunk\n");
 	while (tmp)
 	{
 		if (tmp->location / div == chunk)
@@ -42,7 +42,7 @@ void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
 		ft_ra_check_rb(ptr);
 	else
 		ft_rra_check_rrb(ptr);
-	DEB("END ra or rra\n");
+	DEB("END ra or rra_chunk\n");
 }
 
 void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
@@ -52,7 +52,7 @@ void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
 	int		team_rr;
 
 	i = 0;
-	DEB("START ra or rra\n");
+	DEB("START ra or rra_pa\n");
 	while (tmp_a)
 	{
 		if (tmp_a->location > ptr->b->location)
@@ -74,12 +74,12 @@ void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
 	if (team_r <= ptr->size_a - team_rr)
 	{
 		DEB("team_r win, first at the end\n");
-		ft_ra_check_rb(ptr);
+		ft_simple_ra(ptr);
 	}
 	else
 	{
 		DEB("team_rr win, last at the begin\n");
-		ft_rra_check_rrb(ptr);
+		ft_simple_rra(ptr);
 	}
 	DEB("END ra or rra\n");
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 18:19:55 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 00:35:34 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:45:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,21 @@ void		ft_algo_three(t_pusw *ptr)
 		else
 			ft_ra_check_rb(ptr);
 	}
+	else if (first > second)
+		ft_sa_check_sb(ptr);
+	else if (first < second && first > third)
+		ft_rra_check_rrb(ptr);
+	else
+	{
+		ft_rra_check_rrb(ptr);
+		ft_sa_check_sb(ptr);
+	}
 	DEB("END algo three\n");
 }
+
+#ifndef OPT1
+# define OPT1 0
+#endif
 
 static void	ft_algo_four_five(t_pusw *ptr)
 {
@@ -55,16 +68,28 @@ static void	ft_algo_four_five(t_pusw *ptr)
 	while (size < ptr->total_size)
 	{
 		i = 0;
-		while (i++ < ptr->size_a
-			&& ptr->b->location > ptr->a->location) // ouais mais si b > à tout a ??
-			ft_ra_or_rra_pa(ptr, ptr->a);
-		ft_pa(ptr);
+		#if OPT1
+		if (ptr->b->location > ptr->last_a->location)
+		{
+			ft_pa(ptr);
+			ft_simple_ra(ptr);
+		}
+		else
+		{
+		#endif
+			while (i++ < ptr->size_a
+				&& ptr->b->location > ptr->a->location) // ouais mais si b > à tout a ??
+				ft_ra_or_rra_pa(ptr, ptr->a);
+			ft_pa(ptr);
+		#if OPT1
+		}
+		#endif
 		size++;
 	}
 	DEB("Everything in a\n");
 	i = 0;
 	while (i++ < ptr->size_a
-		&& ptr->a->location > 0) // ouais mais si b > à tout a ??
+		&& ptr->a->location > 0)
 		ft_ra_or_rra_chunk(ptr, ptr->a, ptr->total_size, 0);
 	DEB("END algo 4-5\n");
 }

@@ -20,7 +20,8 @@ DIR_S	=	./
 
 SPUSW	=	$(TEST) push_swap free fill_pusw move_a move_b move_both \
 			move location verbose algo algo_below_five algo_below_hundred \
-			algo_above_hundred check_a check_b r_or_rr
+			algo_above_hundred check_a check_b r_or_rr \
+			simple_call_a simple_call_b
 
 INC_L	=	$(DIR_L)include/
 H_INC	=	libft ft_printf get_next_line
@@ -37,7 +38,7 @@ OBJS	=	$(addprefix $(DIR_S)ft_, $(addsuffix .o, $(SPUSW)))
 
 all		:	$(NAME)
 
-.c.o	:	$(SRCS)
+%.o		:	%.c $(INCLUDE)
 			$(CC) $(CFLAGS) -I$(INC_L) -c -o $@ $<
 
 lib		:

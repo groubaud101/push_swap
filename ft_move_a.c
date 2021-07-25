@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:08:15 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 22:24:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:59:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	ft_rra(t_pusw *ptr)
 		ptr->a = ptr->a->next;
 	last = ptr->a->next;
 	ptr->a->next = NULL;
-	ptr->last_a = ptr->a->next;
+	ptr->last_a = ptr->a;
 	ptr->a = last;
 	ptr->a->next = ex_first;
 	return (CHECK_OK);

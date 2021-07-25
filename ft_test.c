@@ -6,12 +6,20 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 21:20:46 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 23:07:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 14:58:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include "ft_printf.h"
+
+void	do_nothing(char *str, ...)
+{
+	va_list params;
+
+	va_start(params, str);
+	va_end(params);
+}
 
 void	ft_test_move(t_pusw *ptr)
 {

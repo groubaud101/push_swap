@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 18:15:34 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 23:42:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:23:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ static t_stack	*ft_put_one_stack_a(t_stack *tmp)
 static t_stack	*ft_put_one_stack_b(t_stack *tmp)
 {
 	if (tmp)
+	{
 		ft_printf("\t%*i(%3i)\n", 15 - 5, tmp->nb, tmp->location);
-	else
-		return (NULL);
-	return (tmp->next);
+		return (tmp->next);
+	}
+	ft_printf("\n");
+	return (NULL);
 }
 
 void	ft_put_pusw(t_pusw *ptr, char *move)
