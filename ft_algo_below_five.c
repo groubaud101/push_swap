@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 18:19:55 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 15:45:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:12:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ft_algo_three(t_pusw *ptr)
 		}
 		else
 			ft_ra_check_rb(ptr);
-	}
+		}
 	else if (first > second)
 		ft_sa_check_sb(ptr);
 	else if (first < second && first > third)
@@ -48,49 +48,37 @@ void		ft_algo_three(t_pusw *ptr)
 	DEB("END algo three\n");
 }
 
-#ifndef OPT1
-# define OPT1 0
-#endif
-
 static void	ft_algo_four_five(t_pusw *ptr)
 {
 	int	size;
 	int	i;
 
 	size = ptr->total_size;
-	while (size-- > 3)
+	while (--size >= 3)
 		ft_pb(ptr);
 	DEB("ENTER algo3\n");
 	ft_algo_three(ptr);
-	size++;
 	DEB("EXIT algo3, size : %i, total_size : %i\n",
 		size, ptr->total_size);
-	while (size < ptr->total_size)
+	while (ptr->b && size < ptr->total_size)
 	{
 		i = 0;
-		#if OPT1
-		if (ptr->b->location > ptr->last_a->location)
-		{
-			ft_pa(ptr);
-			ft_simple_ra(ptr);
-		}
-		else
-		{
-		#endif
-			while (i++ < ptr->size_a
-				&& ptr->b->location > ptr->a->location) // ouais mais si b > à tout a ??
+		while (ptr->b && i++ < 10
+			&& !(ptr->b->location > ptr->last_a->location
+			|| (ptr->b->location < ptr->a->location
+			&& ptr->b->location > ptr->last_a->location)))
 				ft_ra_or_rra_pa(ptr, ptr->a);
-			ft_pa(ptr);
-		#if OPT1
-		}
-		#endif
+		ft_pa(ptr);
+//		while (ptr->a->location > ptr->a->next->location)
+//			ft_simple_ra(ptr);
+//		while (ptr->a->location > ptr->last_a->location)
+//			ft_simple_rra(ptr);
 		size++;
 	}
 	DEB("Everything in a\n");
 	i = 0;
-	while (i++ < ptr->size_a
-		&& ptr->a->location > 0)
-		ft_ra_or_rra_chunk(ptr, ptr->a, ptr->total_size, 0);
+	while (ptr->a->location > 0 && i++ < 10)
+		ft_ra_or_rra(ptr, ptr->a);
 	DEB("END algo 4-5\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 20:28:31 by user42            #+#    #+#             */
-/*   Updated: 2021/07/24 23:29:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:47:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,54 @@
 
 void	ft_sb_check_sa(t_pusw *ptr)
 {
-	char	*move;
+	int	num_mv;
 /*
 	if (ptr->a && ptr->a->next
 		&& ptr->a->location < ptr->a->next->location)
 	{
 		ft_sa(ptr);
-		move = "ss";	
+		num_mv = SS;	
 	}
 	else
-*/		move = "sb";
+*/		num_mv = SB;
 	ft_sb(ptr);
-	ft_lstadd_move(&ptr->mv, move);
+	ft_lstadd_move(&ptr->mv, num_mv);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, move);
+		ft_put_pusw(ptr, num_mv);
 }
 
 void	ft_rb_check_ra(t_pusw *ptr)
 {
-	char	*move;
+	int	num_mv;
 /*
 	if (ptr->a && ptr->a->next
 		&& ptr->a->location > ptr->last_a->location)
 	{
 		ft_ra(ptr);
-		move = "rr";	
+		num_mv = RR;	
 	}
 	else
-*/		move = "rb";
+*/		num_mv = RB;
 	ft_rb(ptr);
-	ft_lstadd_move(&ptr->mv, move);
+	ft_lstadd_move(&ptr->mv, num_mv);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, move);
+		ft_put_pusw(ptr, num_mv);
 }
 
 void	ft_rrb_check_rra(t_pusw *ptr)
 {
-	char	*move;
+	int	num_mv;
 
 /*	if (ptr->a && ptr->a->next
 		&& ptr->a->location > ptr->last_a->location)
 	{
 		ft_rra(ptr);
-		move = "rrr";	
+		num_mv = RRR;	
 	}
 	else
-*/		move = "rrb";
+*/		num_mv = RRB;
 	ft_rrb(ptr);
-	ft_lstadd_move(&ptr->mv, move);
+	ft_lstadd_move(&ptr->mv, num_mv);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, move);
+		ft_put_pusw(ptr, num_mv);
 }

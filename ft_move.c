@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:13:42 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 15:21:32 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:40:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,39 +29,41 @@ static void	ft_lstadd_back_move(t_move **alst, t_move *new)
 		*alst = new;
 }
 
-static t_move	*ft_lstnew_move(const char *str)
+static t_move	*ft_lstnew_move(int	num_mv)
 {
 	t_move	*lst;
 
 	lst = (t_move *)malloc(sizeof(*lst));
 	if (!lst)
 		return (NULL);
-	lst->move = str;
+	lst->num_mv = num_mv;
 	lst->next = NULL;
 	return (lst);
 }
 
-int	ft_lstadd_move(t_move **mv, const char *str)
+int	ft_lstadd_move(t_move **mv, int num_mv)
 {
 	t_move	*new;
 
-	new = ft_lstnew_move(str);
+	new = ft_lstnew_move(num_mv);
 	if (!new)
 		return (CHECK_ERR);
 	ft_lstadd_back_move(mv, new);
 	return (CHECK_OK);
 }
 
-void	ft_put_move(t_move *mv)
+void	ft_put_move(t_pusw *ptr)
 {
-	int	ct;
+	int		ct;
+	t_move	*mv;
 
+	mv = ptr->mv;
 	ct = 1;
 	if (!mv)
 		return ;
 	while (mv)
 	{
-		ft_printf("%s\n", mv->move);
+		ft_printf("%s\n", ptr->moves[mv->num_mv]);
 		mv = mv->next;
 		ct++;
 	}

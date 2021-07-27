@@ -5,37 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 15:23:44 by user42           ###   ########.fr       */
+/*   Created: 2021/07/27 19:29:59 by user42            #+#    #+#             */
+/*   Updated: 2021/07/27 19:52:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include "libft.h"
 
-int	ft_check_error(char **tab)
+static void	ft_fill_the_moves(t_pusw *ptr)
 {
-	int	i;
-	int sign;
-	int	max;
-
-	if (tab == NULL)
-		return (CHECK_ERR);
-	while (*tab)
-	{
-		i = 0;
-		sign = ((*tab)[i] == '-' || (*tab)[i] == '+');
-		i += sign;
-		max = 10 + sign;
-		while ((*tab)[i])
-		{
-			if (ft_isdigit((*tab)[i]) == 0 || (i >= max))
-				return (CHECK_ERR);
-			i++;
-		}
-		tab++;
-	}
-	return (CHECK_OK);
+	ptr->moves[SA] = "sa";
+	ptr->moves[SB] = "sb";
+	ptr->moves[SS] = "ss";
+	ptr->moves[PA] = "pa";
+	ptr->moves[PB] = "pb";
+	ptr->moves[RA] = "ra";
+	ptr->moves[RB] = "rb";
+	ptr->moves[RR] = "rr";
+	ptr->moves[RRA] = "rra";
+	ptr->moves[RRB] = "rrb";
+	ptr->moves[RRR] = "rrr";
 }
 
 static t_pusw	ft_init_pusw(t_pusw ptr, int verbose)
@@ -59,49 +49,18 @@ void	ft_push_swap(char **tab, int verbose)
 		return (ft_putstr("Error\n"));
 	
 	ptr = ft_init_pusw(ptr, verbose);
+	ft_fill_the_moves(&ptr);
 	if (ft_fill_pusw(&ptr, tab) == CHECK_ERR)
 		return (ft_putstr("Error\n"));
 
 	ft_algo(&ptr);
 	DEB("apres ft_algo\n");
-	ft_put_pusw(&ptr, NULL);
+	ft_put_pusw(&ptr, -1);
 	DEB("apres affichage pusw\n");
-	ft_put_move(ptr.mv);
+	ft_put_move(&ptr);
 	DEB("apres affichage move\n");
 
 	ft_clear(&ptr, CHECK_OK);
 	DEB("apres ft_clear\n");
 
-}
-
-static int	ft_error(void)
-{
-	ft_putstr("Error\n");
-	return (CHECK_ERR);
-}
-
-int main(int ac, char **av)
-{
-	char	**tab;
-	int		verbose;
-
-	if (ac == 1)
-		return (ft_error());
-	verbose = (ft_strcmp("-v", av[1]) == 0);
-	if (ac == 1 + verbose)
-		return (ft_error());
-	if (ac == 2 + verbose)
-	{
-		tab = ft_split(av[1 + verbose], ' ');
-		if (!tab || !tab[0])
-		{
-			ft_free_tab(tab);
-			return (ft_error());
-		}
-		ft_push_swap(tab, verbose);
-		ft_free_tab(tab);
-	}
-	else
-		ft_push_swap(av + (1 + verbose), verbose);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 18:15:34 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 15:23:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:51:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static t_stack	*ft_put_one_stack_b(t_stack *tmp)
 	return (NULL);
 }
 
-void	ft_put_pusw(t_pusw *ptr, char *move)
+void	ft_put_pusw(t_pusw *ptr, int num_mv)
 {
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 
-	if (move)
-		ft_printf("Move : %s\n", move);
+	if (num_mv >= 0)
+		ft_printf("Move : %s\n", ptr->moves[num_mv]);
 	else
 		ft_printf("No new move\n");
 	tmp_a = ptr->a;

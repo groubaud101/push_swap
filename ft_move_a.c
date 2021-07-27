@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:08:15 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 12:59:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:49:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	ft_pa(t_pusw *ptr)
 	ptr->size_a++;
 	if (!ptr->b)
 		ptr->last_b = NULL;
-	ft_lstadd_move(&ptr->mv, "pa");
+	ft_lstadd_move(&ptr->mv, PA);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, "pa");
+		ft_put_pusw(ptr, PA);
 	return (CHECK_OK);
 }
 

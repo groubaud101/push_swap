@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 20:28:31 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 00:19:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:48:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,54 @@
 
 void	ft_sa_check_sb(t_pusw *ptr)
 {
-	char	*move;
+	int	num_mv;
 
 	if (ptr->b && ptr->b->next
 		&& ptr->b->location < ptr->b->next->location)
 	{
 		ft_sb(ptr);
-		move = "ss";	
+		num_mv = SS;	
 	}
 	else
-		move = "sa";
+		num_mv = SA;
 	ft_sa(ptr);
-	ft_lstadd_move(&ptr->mv, move);
+	ft_lstadd_move(&ptr->mv, num_mv);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, move);
+		ft_put_pusw(ptr, num_mv);
 }
 
 void	ft_ra_check_rb(t_pusw *ptr)
 {
-	char	*move;
+	int num_mv;
 
 	if (ptr->b && ptr->b->next
-		&& ptr->b->location < ptr->last_b->location)
+		&& ptr->b->location < ptr->b->next->location)
 	{
 		ft_rb(ptr);
-		move = "rr";	
+		num_mv = RR;	
 	}
 	else
-		move = "ra";
+		num_mv = RA;
 	ft_ra(ptr);
-	ft_lstadd_move(&ptr->mv, move);
+	ft_lstadd_move(&ptr->mv, num_mv);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, move);
+		ft_put_pusw(ptr, num_mv);
 }
 
 void	ft_rra_check_rrb(t_pusw *ptr)
 {
-	char	*move;
+	int num_mv;
 
 	if (ptr->b && ptr->b->next
-		&& ptr->b->location > ptr->last_b->location)
+		&& ptr->b->location < ptr->last_b->location)
 	{
 		ft_rrb(ptr);
-		move = "rrr";	
+		num_mv = RRR;	
 	}
 	else
-		move = "rra";
+		num_mv = RRA;
 	ft_rra(ptr);
-	ft_lstadd_move(&ptr->mv, move);
+	ft_lstadd_move(&ptr->mv, num_mv);
 	if (ptr->verbose == 1)
-		ft_put_pusw(ptr, move);
+		ft_put_pusw(ptr, num_mv);
 }

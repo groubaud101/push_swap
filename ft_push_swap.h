@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 16:09:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 19:51:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,21 @@ typedef struct s_stack
 	struct s_stack	*next;
 }t_stack;
 
+# define SA 0
+# define SB 1
+# define SS 2
+# define PA 3
+# define PB 4
+# define RA 5
+# define RB 6
+# define RR 7
+# define RRA 8
+# define RRB 9
+# define RRR 10
+
 typedef struct s_move
 {
-	const char		*move;
+	int				num_mv;
 	struct s_move	*next;
 }t_move;
 
@@ -49,6 +61,7 @@ typedef struct s_pusw
 	t_stack	*b;
 	t_stack	*last_a;
 	t_stack	*last_b;
+	char	*moves[11];
 	t_move	*mv;
 	t_index	index;
 }t_pusw;
@@ -112,8 +125,8 @@ int		ft_location(t_pusw *ptr);
 ** ft_put_move :
 **  Display the linked list t_move with \n between node
 */
-int		ft_lstadd_move(t_move **mv, const char *str);
-void	ft_put_move(t_move *mv);
+int		ft_lstadd_move(t_move **mv, int num_mv);
+void	ft_put_move(t_pusw *ptr);
 
 /*
 ** ft_move_a.c
@@ -211,7 +224,7 @@ void	ft_simple_rrb(t_pusw *ptr);
 **  Display the last move
 **  Then display the stacks a and b with the change
 */
-void	ft_put_pusw(t_pusw *ptr, char *move);
+void	ft_put_pusw(t_pusw *ptr, int num_mv);
 
 /*
 ** ft_algo.c
@@ -240,6 +253,7 @@ void	ft_algo_below_hundred(t_pusw *ptr);
 void	ft_algo_above_hundred(t_pusw *ptr);
 
 
+void	ft_ra_or_rra(t_pusw *ptr, t_stack *tmp);
 void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk);
 void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
 

@@ -31,8 +31,8 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 LIB		=	-L $(DIR_S) -lft
 
-SRCS	=	$(addprefix $(DIR_S)ft_, $(addsuffix .c, $(SPUSW)))
-OBJS	=	$(addprefix $(DIR_S)ft_, $(addsuffix .o, $(SPUSW)))
+SRCS	=	main.c $(addprefix $(DIR_S)ft_, $(addsuffix .c, $(SPUSW)))
+OBJS	=	main.o $(addprefix $(DIR_S)ft_, $(addsuffix .o, $(SPUSW)))
 
 ## commande
 
