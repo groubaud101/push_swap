@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 18:37:25 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:07:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 21:20:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,8 @@ void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
 	DEB("END ra or rra_chunk\n");
 }
 
-static int	ft_a_the_greatest_in_a(t_pusw *ptr)
+int	ft_the_greatest(t_stack *tmp_a, int the_greatest)
 {
-	int	the_greatest;
-	t_stack	*tmp_a;
-
-	tmp_a = ptr->a;
-	the_greatest = tmp_a->location;
 	while (tmp_a)
 	{
 		if (tmp_a->location > the_greatest)
@@ -68,6 +63,17 @@ static int	ft_a_the_greatest_in_a(t_pusw *ptr)
 		tmp_a = tmp_a->next;
 	}
 	return (CHECK_OK);
+}
+
+int	ft_can_insert(t_pusw *ptr, t_stack *tmp_a, int location, int tmp_prev)
+{
+	if ((location < tmp_a->location 
+		&& location > tmp_prev)
+		|| ((ft_the_greatest(tmp_a, location) == CHECK_OK
+		|| location < ptr->a->location)
+		&& ft_check_order(ptr->a) == CHECK_OK))
+		return (CHECK_OK);
+	return (CHECK_ERR);
 }
 
 void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
@@ -82,9 +88,7 @@ void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
 	tmp_prev = ptr->last_a->location;
 	while (tmp_a)
 	{
-		if ((ptr->b->location < tmp_a->location 
-			&& ptr->b->location > tmp_prev)
-			|| (ft_a_the_greatest_in_a(ptr) == CHECK_OK))
+		if (ft_can_insert(ptr, tmp_a, ptr->b->location, tmp_prev) == CHECK_OK)
 			break;
 		tmp_prev = tmp_a->location;
 		tmp_a = tmp_a->next;
@@ -95,9 +99,7 @@ void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
 	team_rr = i;
 	while (tmp_a)
 	{
-		if ((ptr->b->location < tmp_a->location 
-			&& ptr->b->location > tmp_prev)
-			|| (ft_a_the_greatest_in_a(ptr) == CHECK_OK))
+		if (ft_can_insert(ptr, tmp_a, ptr->b->location, tmp_prev) == CHECK_OK)
 			team_rr = i;
 		i++;
 		tmp_a = tmp_a->next;

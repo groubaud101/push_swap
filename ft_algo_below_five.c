@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 18:19:55 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:12:36 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 21:15:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_algo_three(t_pusw *ptr)
 	int	second;
 	int third;
 
-	if (ft_check_order(ptr) == CHECK_OK)
+	if (ft_check_order(ptr->a) == CHECK_OK)
 		return ;
 	DEB("START algo three\n");
 	first = ptr->a->location;
@@ -64,15 +64,14 @@ static void	ft_algo_four_five(t_pusw *ptr)
 	{
 		i = 0;
 		while (ptr->b && i++ < 10
-			&& !(ptr->b->location > ptr->last_a->location
-			|| (ptr->b->location < ptr->a->location
-			&& ptr->b->location > ptr->last_a->location)))
+			&& ft_can_insert(ptr, ptr->a,
+			ptr->b->location, ptr->last_a->location) == CHECK_ERR)
+//			&& !((ft_the_greatest(ptr, ptr->b->location)
+//			&& ft_check_order(ptr->a) == CHECK_OK)
+//			|| (ptr->b->location < ptr->a->location
+//			&& ptr->b->location > ptr->last_a->location)))
 				ft_ra_or_rra_pa(ptr, ptr->a);
 		ft_pa(ptr);
-//		while (ptr->a->location > ptr->a->next->location)
-//			ft_simple_ra(ptr);
-//		while (ptr->a->location > ptr->last_a->location)
-//			ft_simple_rra(ptr);
 		size++;
 	}
 	DEB("Everything in a\n");

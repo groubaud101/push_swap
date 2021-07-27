@@ -6,17 +6,16 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 19:27:05 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 00:36:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 21:07:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_check_order(t_pusw *ptr)
+int	ft_check_order(t_stack *tmp)
 {
-	t_stack	*tmp;
-
-	tmp = ptr->a;
+	if (!tmp)
+		return (CHECK_ERR);
 	while (tmp->next)
 	{
 		DEB("tmp loc : %i, tmp next loc : %i\n",
@@ -34,7 +33,7 @@ void	ft_algo(t_pusw *ptr)
 		ptr->last_a->nb, ptr->last_a->location);
 
 	DEB("let's order\n");
-	if (ft_check_order(ptr) == CHECK_OK && !ptr->b)
+	if (ft_check_order(ptr->a) == CHECK_OK && !ptr->b)
 		return ;
 	DEB("it's not in the right order\n");
 	if (ptr->size_a <= 5)

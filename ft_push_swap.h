@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:51:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 21:07:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,8 +242,11 @@ void	ft_put_pusw(t_pusw *ptr, int num_mv);
 **
 **
 */
-int		ft_check_order(t_pusw *ptr);
+int		ft_check_order(t_stack *tmp);
 void	ft_algo(t_pusw *ptr);
+int		ft_the_greatest_in_a(t_stack *tmp_a, int the_greatest);
+int		ft_can_insert(t_pusw *pt, t_stack *tmp_a, int location, int tmp_prev);
+
 
 void	ft_algo_below_five(t_pusw *ptr);
 
