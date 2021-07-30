@@ -21,7 +21,7 @@ DIR_S	=	./
 SPUSW	=	$(TEST) push_swap free fill_pusw move_a move_b move_both \
 			move location verbose algo algo_below_five algo_below_hundred \
 			algo_above_hundred check_a check_b r_or_rr \
-			simple_call_a simple_call_b
+			simple_call_a simple_call_b optimize_move
 
 INC_L	=	$(DIR_L)include/
 H_INC	=	libft ft_printf get_next_line

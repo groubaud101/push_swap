@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 18:19:55 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 21:15:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 21:55:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,13 @@ static void	ft_algo_four_five(t_pusw *ptr)
 	int	i;
 
 	size = ptr->total_size;
-	while (--size >= 3)
+	while (--size >= 3
+		&& ft_can_insert(ptr, ptr->a,
+		ptr->a->location, ptr->last_a->location) == CHECK_ERR)
 		ft_pb(ptr);
 	DEB("ENTER algo3\n");
-	ft_algo_three(ptr);
+	if (size == 2)
+		ft_algo_three(ptr);
 	DEB("EXIT algo3, size : %i, total_size : %i\n",
 		size, ptr->total_size);
 	while (ptr->b && size < ptr->total_size)
@@ -66,11 +69,7 @@ static void	ft_algo_four_five(t_pusw *ptr)
 		while (ptr->b && i++ < 10
 			&& ft_can_insert(ptr, ptr->a,
 			ptr->b->location, ptr->last_a->location) == CHECK_ERR)
-//			&& !((ft_the_greatest(ptr, ptr->b->location)
-//			&& ft_check_order(ptr->a) == CHECK_OK)
-//			|| (ptr->b->location < ptr->a->location
-//			&& ptr->b->location > ptr->last_a->location)))
-				ft_ra_or_rra_pa(ptr, ptr->a);
+			ft_ra_or_rra_pa(ptr, ptr->a);
 		ft_pa(ptr);
 		size++;
 	}

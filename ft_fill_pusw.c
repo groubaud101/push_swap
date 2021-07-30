@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/25 00:37:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/29 10:50:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ static int	ft_really_zero(char *nbr)
 	i = 0;
 	if (nbr[i] == '-' || nbr[i] == '+')
 		i++;
-	if (nbr[i] == '0' && nbr[i + 1] == '\0')
+	while (nbr[i] == '0')
+		i++;
+	if (nbr[i] == '\0')
 		return (CHECK_OK);
 	return (CHECK_ERR);
 }

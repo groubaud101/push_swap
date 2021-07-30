@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 18:37:25 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 21:20:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/30 14:05:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_ra_or_rra(t_pusw *ptr, t_stack *tmp)
 		ft_ra_check_rb(ptr);
 }
 
-void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
+int	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
 {
 	int		team_r;
 	int		i;
@@ -35,6 +35,8 @@ void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
 		tmp = tmp->next;
 		i++;
 	}
+	if (!tmp)
+		return (CHECK_ERR);
 	team_r = i;
 	DEB("team_r : %i\n", team_r);
 	team_rr = i;
@@ -52,6 +54,7 @@ void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk)
 		ft_rra_check_rrb(ptr);
 
 	DEB("END ra or rra_chunk\n");
+	return (CHECK_OK);
 }
 
 int	ft_the_greatest(t_stack *tmp_a, int the_greatest)

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 19:27:05 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 21:07:30 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/27 21:54:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	ft_check_order(t_stack *tmp)
 		return (CHECK_ERR);
 	while (tmp->next)
 	{
-		DEB("tmp loc : %i, tmp next loc : %i\n",
-			tmp->location, tmp->next->location);
 		if (tmp->location > tmp->next->location)
 			return (CHECK_ERR);
 		tmp = tmp->next;

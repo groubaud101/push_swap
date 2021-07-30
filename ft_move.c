@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:13:42 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:40:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/28 17:19:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,13 @@ void	ft_put_move(t_pusw *ptr)
 	t_move	*mv;
 
 	mv = ptr->mv;
-	ct = 1;
-	if (!mv)
-		return ;
+	ct = 0;
 	while (mv)
 	{
 		ft_printf("%s\n", ptr->moves[mv->num_mv]);
 		mv = mv->next;
 		ct++;
 	}
-	ft_printf("nb de mv : %i\n", ct);
+	if (ptr->verbose)
+		ft_printf("nb de mv : %i\n", ct);
 }

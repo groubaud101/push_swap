@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 21:07:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/30 14:40:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,8 +257,15 @@ void	ft_algo_above_hundred(t_pusw *ptr);
 
 
 void	ft_ra_or_rra(t_pusw *ptr, t_stack *tmp);
-void	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk);
+int		ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int div, int chunk);
 void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
+
+/*
+** ft_optmize_move.c
+**  Remove move that cancel each other out
+**  (ra and rra, pa and pb)
+*/
+void	ft_optimize(t_pusw *ptr);
 
 #endif
 
@@ -267,6 +274,7 @@ void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
 # include <stdio.h>
 void	ft_test_move(t_pusw *ptr);
 void	do_nothing(char *str, ...);
+
 # define DEBUG 1
 # if DEBUG
 #  define DEB printf
