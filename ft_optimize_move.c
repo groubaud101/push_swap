@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:12:48 by user42            #+#    #+#             */
-/*   Updated: 2021/08/01 19:54:57 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/01 20:03:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@ static int	ft_is_ra_and_rra(int num_mv1, int num_mv2)
 		|| (num_mv1 == RRA && num_mv2 == RA))
 		return (CHECK_OK);
 	return (CHECK_ERR);
-}
-
-static void ft_test_add_move(t_move **mv)
-{
-	return ;
-	ft_lstadd_move(mv, PA);
-	ft_lstadd_move(mv, PA);// 3
-	ft_lstadd_move(mv, RA);// 2
-	ft_lstadd_move(mv, RA);// 1
-	ft_lstadd_move(mv, RRA);// 1
-	ft_lstadd_move(mv, RRA);// 2
-	ft_lstadd_move(mv, PB);// 3
-	ft_lstadd_move(mv, RRA);
-	ft_lstadd_move(mv, RRA);// 4
-	ft_lstadd_move(mv, RA);// 4
-	ft_lstadd_move(mv, SA);
 }
 
 void	ft_optimize(t_pusw *ptr)
