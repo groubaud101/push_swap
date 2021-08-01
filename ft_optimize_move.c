@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:12:48 by user42            #+#    #+#             */
-/*   Updated: 2021/07/30 14:59:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/01 19:54:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,56 +29,61 @@ static int	ft_is_ra_and_rra(int num_mv1, int num_mv2)
 	return (CHECK_ERR);
 }
 
+static void ft_test_add_move(t_move **mv)
+{
+	return ;
+	ft_lstadd_move(mv, PA);
+	ft_lstadd_move(mv, PA);// 3
+	ft_lstadd_move(mv, RA);// 2
+	ft_lstadd_move(mv, RA);// 1
+	ft_lstadd_move(mv, RRA);// 1
+	ft_lstadd_move(mv, RRA);// 2
+	ft_lstadd_move(mv, PB);// 3
+	ft_lstadd_move(mv, RRA);
+	ft_lstadd_move(mv, RRA);// 4
+	ft_lstadd_move(mv, RA);// 4
+	ft_lstadd_move(mv, SA);
+}
+
 void	ft_optimize(t_pusw *ptr)
 {
 	t_move	*crt;
 	t_move	*tmp;
+	t_move	*prev;
 	int		i;
 
 	if (!ptr->mv)
 		return ;
 	crt = ptr->mv;
+	prev = ptr->mv;
 	tmp = NULL;
 	i = 0;
+	DEB("START ft_optimize\n");
 	while (crt && crt->next)
 	{
-		DEB("\ndebut boucle crt : %i, ptr->mv : %i\n",
-				crt->num_mv, ptr->mv->num_mv);
+		DEB("\ndebut boucle crt : %i, ptr->mv : %i, i : %i \n",
+				crt->num_mv, ptr->mv->num_mv, i);
 		ft_put_move(ptr);
-		if (ft_is_pa_and_pb(crt->num_mv, crt->next->num_mv) == CHECK_OK)
+		if (ft_is_pa_and_pb(crt->num_mv, crt->next->num_mv) == CHECK_OK
+			|| ft_is_ra_and_rra(crt->num_mv, crt->next->num_mv) == CHECK_OK)
 		{
-			DEB("is_pa_pb crt : %i, ptr->mv : %i\n",
-				crt->num_mv, ptr->mv->num_mv);
+			DEB("delete two\n");
 			tmp = crt->next->next;
 			free(crt->next);
 			free(crt);
 			if (i == 0)
 				ptr->mv = tmp;
 			else
-				ptr->mv->next = tmp;
+				prev->next = tmp;
 			crt = ptr->mv;
-			i = 0;
-		}
-		else if (ft_is_ra_and_rra(crt->num_mv, crt->next->num_mv) == CHECK_OK)
-		{
-			DEB("is_ra_rra crt : %i, ptr->mv : %i\n",
-				crt->num_mv, ptr->mv->num_mv);
-			tmp = crt->next->next;
-			free(crt->next);
-			free(crt);
-			ptr->mv->next = tmp;
-			crt = ptr->mv;
-			if (i == 0)
-				ptr->mv = tmp;
-			else
-				ptr->mv->next = tmp;
 			i = 0;
 		}
 		else
 		{
-			DEB("go next, crt : %i, ptr->mv : %i\n",
-				crt->num_mv, ptr->mv->num_mv);
+			DEB("go next\n");
+			prev = crt;
 			crt = crt->next;
+			i++;
 		}
 	}
 	DEB("END ft_optimize\n");
