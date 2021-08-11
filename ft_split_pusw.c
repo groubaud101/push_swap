@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include "libft.h"
+#include "ft_push_swap.h"
 
 static int	ft_special_strlen(char const *s, int start, char end)
 {
@@ -31,7 +32,7 @@ static char	**ft_free_tab(char **tab, int len)
 	return (NULL);
 }
 
-char	**ft_split_pusw(char const *s, char **tab, int *j)
+static char	**ft_split_pusw(char const *s, char **tab, int *j)
 {
 	int		len;
 
@@ -51,5 +52,50 @@ char	**ft_split_pusw(char const *s, char **tab, int *j)
 		}
 	}
 	tab[*j] = NULL;
+	return (tab);
+}
+
+static int	ft_count_words(char const *s, char c)
+{
+	int	ct;
+
+	ct = 0;
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (*s)
+			ct++;
+		while (*s && *s != c)
+			s++;
+	}
+	return (ct);
+}
+
+char	**ft_attribute_params(char **av, int verbose)
+{
+	int		i;
+	int		j;
+	int		nb_wrd;
+	char	**tab;
+
+	i = verbose + 1;
+	nb_wrd = 0;
+	while (av[i])
+	{
+		nb_wrd += ft_count_words(av[i], ' ');
+		i++;
+	}
+	tab = (char **)malloc(sizeof(*tab) * (nb_wrd + 1));
+	if (!tab)
+		return (CHECK_ERR);
+	i = verbose + 1;
+	j = 0;
+	while (av[i])
+	{
+		tab = ft_split_pusw(av[i++], tab, &j);
+		if (!tab)
+			return (CHECK_ERR);
+	}
 	return (tab);
 }

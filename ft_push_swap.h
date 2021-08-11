@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/08/01 20:32:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/02 19:58:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_pusw
 	t_index	index;
 }t_pusw;
 
-char	**ft_split_pusw(char const *s, char **tab, int *j);
+char	**ft_attribute_params(char **av, int verbose);
 
 /*
 ** ft_push_swap.c
