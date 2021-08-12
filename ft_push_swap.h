@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 23:21:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/12 23:34:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,7 +295,7 @@ void	ft_optimize(t_pusw *ptr);
 void	ft_test_move(t_pusw *ptr);
 void	do_nothing(char *str, ...);
 
-# define DEBUG 1
+# define DEBUG 0
 # if DEBUG
 #  define DEB printf
 # else

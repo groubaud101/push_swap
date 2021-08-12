@@ -24,4 +24,4 @@ echo $ARG > chiffre.txt
 echo -n "nb of moves : "
 ./push_swap $ARG | wc -l
 COMMENTS
-./push_swap -v "2 3 4 5 1"
+./push_swap "2 3 4 5 1"
