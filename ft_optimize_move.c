@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:12:48 by user42            #+#    #+#             */
-/*   Updated: 2021/08/01 20:03:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/12 23:20:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,46 @@ static int	ft_is_ra_and_rra(int num_mv1, int num_mv2)
 	return (CHECK_ERR);
 }
 
+static int	ft_delete_two_nodes(t_pusw *ptr, t_move *crt, t_move *prev, int i)
+{
+	t_move	*tmp;
+
+	tmp = crt->next->next;
+	free(crt->next);
+	free(crt);
+	if (i == 0)
+		ptr->mv = tmp;
+	else
+		prev->next = tmp;
+	crt = ptr->mv;
+	return (0);
+}
+
 void	ft_optimize(t_pusw *ptr)
 {
 	t_move	*crt;
-	t_move	*tmp;
 	t_move	*prev;
+	t_move	*tmp;
 	int		i;
 
 	if (!ptr->mv)
+	{
+		if (ptr->mv)
+			i = ft_delete_two_nodes(ptr, ptr->mv, ptr->mv, 0);
 		return ;
+	}
 	crt = ptr->mv;
 	prev = ptr->mv;
-	tmp = NULL;
 	i = 0;
-	DEB("START ft_optimize\n");
+	tmp = NULL;
+	DEB("COUCOU1\n");
 	while (crt && crt->next)
 	{
-		DEB("\ndebut boucle crt : %i, ptr->mv : %i, i : %i \n",
-				crt->num_mv, ptr->mv->num_mv, i);
 		ft_put_move(ptr);
 		if (ft_is_pa_and_pb(crt->num_mv, crt->next->num_mv) == CHECK_OK
 			|| ft_is_ra_and_rra(crt->num_mv, crt->next->num_mv) == CHECK_OK)
 		{
-			DEB("delete two\n");
+			//i = ft_delete_two_nodes(ptr, crt, prev, i);
 			tmp = crt->next->next;
 			free(crt->next);
 			free(crt);
@@ -60,15 +77,13 @@ void	ft_optimize(t_pusw *ptr)
 			else
 				prev->next = tmp;
 			crt = ptr->mv;
-			i = 0;
 		}
 		else
 		{
-			DEB("go next\n");
 			prev = crt;
 			crt = crt->next;
 			i++;
 		}
 	}
-	DEB("END ft_optimize\n");
+	DEB("COUCOU2\n");
 }

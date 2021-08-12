@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker.h                                       :+:      :+:    :+:   */
+/*   ft_ra_or_rra.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 19:10:16 by user42            #+#    #+#             */
-/*   Updated: 2021/08/02 19:10:53 by user42           ###   ########.fr       */
+/*   Created: 2021/08/12 22:58:24 by user42            #+#    #+#             */
+/*   Updated: 2021/08/12 22:58:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CHECKER_H
-# define FT_CHECKER_H
+#include "ft_push_swap.h"
 
-# include "ft_push_swap.h"
-
-
-
-#endif
+void	ft_ra_or_rra(t_pusw *ptr, t_stack *tmp)
+{
+	if (tmp->location <= ptr->total_size / 2)
+		ft_rra_check_rrb(ptr);
+	else
+		ft_ra_check_rb(ptr);
+}

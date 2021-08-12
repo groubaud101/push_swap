@@ -24,7 +24,7 @@ static int	ft_special_strlen(char const *s, int start, char end)
 	return (index);
 }
 
-static char	**ft_free_tab(char **tab, int len)
+static char	**ft_free_tab_split(char **tab, int len)
 {
 	while (len)
 		free(tab[--len]);
@@ -45,7 +45,7 @@ static char	**ft_split_pusw(char const *s, char **tab, int *j)
 			len = ft_special_strlen(s, 0, ' ');
 			tab[*j] = (char *)ft_calloc(sizeof(*tab), len + 1);
 			if (!(tab[*j]))
-				return (ft_free_tab(tab, *j));
+				return (ft_free_tab_split(tab, *j));
 			ft_strlcpy(tab[*j], s, len + 1);
 			s = s + len;
 			*j = *j + 1;

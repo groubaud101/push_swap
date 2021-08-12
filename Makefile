@@ -21,11 +21,10 @@ DIR_S	=	./
 SCOMMON	=	fill_pusw move_a move_b move_both split_pusw \
 			location free move check_error
 
-SPUSW	=	$(TEST) $(SCOMMON) push_swap verbose algo algo_below_five r_or_rr \
-			algo_below_hundred algo_above_hundred check_a check_b \
-			simple_call_a simple_call_b optimize_move
-
-SCHECK	=	$(SCOMMON) checker
+SPUSW	=	$(TEST) $(SCOMMON) push_swap verbose algo algo_below_five \
+			algo_below_hundred algo_above_hundred \
+			ra_or_rra ra_or_rra_pa ra_or_rra_chunk rb_or_rrb_restack \
+			check_b simple_call_a simple_call_b optimize_move
 
 INC_L	=	$(DIR_L)include/
 H_INC	=	libft ft_printf get_next_line

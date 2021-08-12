@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker.c                                       :+:      :+:    :+:   */
+/*   ft_r_or_rr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 19:06:09 by user42            #+#    #+#             */
-/*   Updated: 2021/08/02 20:02:14 by user42           ###   ########.fr       */
+/*   Created: 2021/07/27 18:37:25 by user42            #+#    #+#             */
+/*   Updated: 2021/08/12 22:58:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_checker.h"
+#include "ft_push_swap.h"
 
-void	ft_checker(char **tab)
+int	ft_rb_or_rrb_restack(t_pusw *ptr, int top)
 {
+	int		i;
+	t_stack	*tmp;
 
-}
-
-int main(int ac, char **av)
-{
-	char	**tab;
-
-	if (ac == 1)
-		return (ft_error());
-	tab = ft_attribute_params(av, 0);
-	if (!tab || !tab[0])
+	tmp = ptr->b;
+	i = 0;
+	while (tmp)
 	{
-		ft_free_tab(tab);
-		return (ft_error());
+		if (tmp->location == top)
+			break;
+		tmp = tmp->next;
+		i++;
 	}
-	ft_checker(tab);
-	ft_free_tab(tab);
-	return (0);
+	if (!tmp)
+		return (CHECK_ERR);
+	if (i < ptr->size_b / 2)
+		while (i-- > 0)
+			ft_simple_rb(ptr);
+	else
+		while (i++ < ptr->size_b)
+			ft_simple_rrb(ptr);
+	return (CHECK_OK);
 }

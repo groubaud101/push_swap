@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/07/29 10:50:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/12 22:56:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	ft_fill_pusw(t_pusw *ptr, char **tab)
 	t_stack	*tmp;
 	int		nb;
 
-	DEB("ft_fill_pusw\n");
 	while (*tab)
 	{
 		nb = ft_atoi_no_overflow(*tab);
@@ -89,7 +88,6 @@ int	ft_fill_pusw(t_pusw *ptr, char **tab)
 	}
 	ptr->total_size = ptr->size_a;
 	ptr->last_a = ft_last_a(ptr->a);
-	DEB("ft_location\n");
 	if (ft_location(ptr) == CHECK_ERR)
 		return (ft_clear(ptr, CHECK_ERR));
 	return (CHECK_OK);

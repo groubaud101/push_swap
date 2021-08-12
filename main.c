@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:29:32 by user42            #+#    #+#             */
-/*   Updated: 2021/08/02 20:00:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/11 20:51:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 // tout doux :
 // - algo avec les chunks
-// - Le checker
 
 int main(int ac, char **av)
 {
@@ -32,12 +31,11 @@ int main(int ac, char **av)
 	{
 		tab = ft_attribute_params(av, verbose);
 		if (!tab || !tab[0])
-		{
+			ft_error();
+		else
+			ft_push_swap(tab, verbose);
+		if (tab)
 			ft_free_tab(tab);
-			return (ft_error());
-		}
-		ft_push_swap(tab, verbose);
-		ft_free_tab(tab);
 	}
 	return (0);
 }
