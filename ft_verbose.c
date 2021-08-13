@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 18:15:34 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:51:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/12 23:47:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,5 @@ void	ft_put_pusw(t_pusw *ptr, int num_mv)
 		else
 			ft_printf("\t%*s\n", 15, "");
 	}
-	printf("last :\n");
-	ft_put_one_stack_a(ptr->last_a);
-	ft_put_one_stack_b(ptr->last_b);
 	ft_printf("\n");
 }

@@ -1,6 +1,6 @@
 #!/bin/sh
 make
-<<'COMMENTS'
+
 FILE="file_test_opt1"
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]
@@ -23,5 +23,3 @@ echo $ARG > chiffre.txt
 
 echo -n "nb of moves : "
 ./push_swap $ARG | wc -l
-COMMENTS
-./push_swap "2 3 4 5 1"

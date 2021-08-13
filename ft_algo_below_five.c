@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 18:19:55 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 23:10:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 02:49:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,16 @@ void		ft_algo_three(t_pusw *ptr)
 
 static void	ft_algo_four_five(t_pusw *ptr)
 {
-	int	size;
-	int	i;
-
-	size = ptr->total_size;
-	while (--size >= 3
-		&& ft_can_insert(ptr, ptr->a,
-		ptr->a->location, ptr->last_a->location) == CHECK_ERR)
+	if (ptr->total_size == 5)
 		ft_pb(ptr);
-	if (size == 2)
-		ft_algo_three(ptr);
-	while (ptr->b && size < ptr->total_size)
+	ft_pb(ptr);
+	ft_algo_three(ptr);
+	while (ptr->b)
 	{
-		i = 0;
-		while (ptr->b && i++ < 10
-			&& ft_can_insert(ptr, ptr->a,
-			ptr->b->location, ptr->last_a->location) == CHECK_ERR)
-			ft_ra_or_rra_pa(ptr, ptr->a);
+		ft_ra_or_rra_pa(ptr, ptr->a);
 		ft_pa(ptr);
-		size++;
 	}
-	i = 0;
-	while (ptr->a->location > 0 && i++ < 10)
-		ft_ra_or_rra(ptr, ptr->a);
+	ft_ra_or_rra(ptr, ptr->a);
 }
 
 void	ft_algo_below_five(t_pusw *ptr)

@@ -6,33 +6,11 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 19:36:13 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 19:59:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 03:02:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-static int	ft_the_greatest(t_stack *tmp, int the_greatest)
-{
-	while (tmp)
-	{
-		if (tmp->location > the_greatest)
-			return (CHECK_ERR);
-		tmp = tmp->next;
-	}
-	return (CHECK_OK);
-}
-
-int	ft_can_insert(t_pusw *ptr, t_stack *tmp_a, int location, int tmp_prev)
-{
-	if ((location < tmp_a->location 
-		&& location > tmp_prev)
-		|| ((ft_the_greatest(tmp_a, location) == CHECK_OK
-		|| location < ptr->a->location)
-		&& ft_check_order(tmp_a) == CHECK_OK))
-		return (CHECK_OK);
-	return (CHECK_ERR);
-}
 
 static int	ft_team_r(t_pusw *ptr, t_stack *tmp_a)
 {
@@ -72,15 +50,22 @@ static int	ft_team_rr(t_pusw *ptr, t_stack *tmp_a)
 	return (team_rr);
 }
 
-void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
+int	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp_a)
 {
 	int		team_r;
 	int		team_rr;
+	int		i;
 
+	i = 0;
 	team_r = ft_team_r(ptr, tmp_a);
-	team_rr = ft_team_rr(ptr, tmp_a);
-	if (team_r <= ptr->size_a - team_rr)
-		ft_simple_ra(ptr);
+	if (team_r == ptr->total_size)
+		return (CHECK_ERR);
+	team_rr = ptr->size_a - ft_team_rr(ptr, tmp_a);
+	if (team_r < team_rr)
+		while (i++ < team_r)
+			ft_simple_ra(ptr);
 	else
-		ft_simple_rra(ptr);
+		while (i++ < team_rr)
+			ft_simple_rra(ptr);
+	return (CHECK_OK);
 }

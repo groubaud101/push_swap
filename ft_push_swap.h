@@ -6,12 +6,14 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 23:34:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 03:01:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
+
+#include <stddef.h>
 
 # define CHECK_OK 1
 # define CHECK_ERR 0
@@ -277,7 +279,7 @@ void	ft_algo_above_hundred(t_pusw *ptr);
 
 void	ft_ra_or_rra(t_pusw *ptr, t_stack *tmp);
 int		ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int top);
-void	ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
+int		ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
 int		ft_rb_or_rrb_restack(t_pusw *ptr, int top);
 
 /*
@@ -289,7 +291,7 @@ void	ft_optimize(t_pusw *ptr);
 
 #endif
 
-#define TEST 1
+#define TEST 0
 #if TEST
 # include <stdio.h>
 void	ft_test_move(t_pusw *ptr);
