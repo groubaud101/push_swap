@@ -3,23 +3,27 @@ make
 
 FILE="file_test_opt1"
 
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]
+if [ -n "$1" ] && [ -z "$2" ]
 then
+	ARG=$1
+elif [ -n "$1" ] && [ -n "$2" ] && [ -n "$3" ]
+then
+	ARG=`./a.out $1 $2 $3`;
+	echo $ARG
+else
 	echo "./pusw_script <nb of numeros> <min> <max> [move ?]"
 	exit 1
 fi
 
-ARG=`./a.out $1 $2 $3`;
-echo $ARG
-
 if [ -n "$4" ]
 then
+	./push_swap -v $ARG
+else
 	./push_swap $ARG
 fi
 
 echo $ARG > chiffre.txt
-./push_swap $ARG | ./checker_linux $ARG
-
+./push_swap $ARG | ./checker_linux $ARG | grep --color -E "OK|Error"
 
 echo -n "nb of moves : "
 ./push_swap $ARG | wc -l

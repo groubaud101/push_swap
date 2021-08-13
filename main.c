@@ -6,16 +6,12 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:29:32 by user42            #+#    #+#             */
-/*   Updated: 2021/08/13 17:54:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 19:00:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include "libft.h"
-#include <stdlib.h>
-
-// tout doux :
-// - algo avec les chunks
 
 int	main(int ac, char **av)
 {
@@ -23,7 +19,7 @@ int	main(int ac, char **av)
 	int		verbose;
 
 	if (ac == 1)
-		return (ft_error());
+		return (0);
 	verbose = (ft_strcmp("-v", av[1]) == 0);
 	if (ac == 1 + verbose)
 		return (ft_error());

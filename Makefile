@@ -15,7 +15,7 @@ NAME	=	push_swap
 DIR_L	=	./libft/
 DIR_S	=	./
 
-SCOMMON	=	fill_pusw move_a move_b move_both split_pusw \
+SCOMMON	=	fill_pusw move_a move_b move_both attribute_params \
 			location free move check_error
 
 SPUSW	=	$(SCOMMON) push_swap verbose algo algo_below_five \

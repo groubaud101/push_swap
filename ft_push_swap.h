@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/08/13 17:28:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 18:13:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,26 @@ typedef struct s_pusw
 	t_index	index;
 }t_pusw;
 
+/*
+** main.c
+** main :
+**  Check if the number of arguments is correct
+**  Set verbose
+**  Create a tab with the arguments
+**  Call push_swap
+**  Free the tab
+*/
 
 /*
-** ft_split_pusw.c
+** ft_attribute_params.c
 ** ft_attribute_params :
-**  split the arguments with several parameters
-**   and add it with the unique parameter in a argument
-**   into a tab
+**  split all the arguments into a tab
+**  (even when several in a parameter)
 */
 char	**ft_attribute_params(char **av, int verbose);
 
 /*
 ** ft_push_swap.c
-**
-** main :
-**  Check if the number of arguments is correct and set verbose
-**
 ** ft_push_swap :
 **  Control tower
 **   ft_check_error, fill the linked lists, run the algo, 
