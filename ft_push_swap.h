@@ -6,17 +6,21 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:26:40 by user42            #+#    #+#             */
-/*   Updated: 2021/08/13 18:13:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 21:40:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 # define CHECK_OK 1
 # define CHECK_ERR 0
+
+/*
+** Struct to set the index (futur location) of the numbers
+*/
 
 typedef struct s_index
 {
@@ -99,12 +103,12 @@ void	ft_push_swap(char **tab, int verbose);
 ** ft_check_error.c
 **
 ** ft_error :
-**  aff "Error\n"
-**  return CHECK_ERR
+**  Aff "Error\n"
+**  Return CHECK_ERR
 **
 ** ft_check_error :
-**  check if number is longer than 10 (+sign) characters
-**  check if value is digit
+**  Check if number is longer than 10 (+sign) characters
+**  Check if value is digit
 */
 int		ft_error(void);
 int		ft_check_error(char **tab);
@@ -113,7 +117,7 @@ int		ft_check_error(char **tab);
 ** ft_free.c
 **
 ** ft_free_tab :
-**  free tab from ft_split
+**  free tab from ft_attribute_argument
 **
 ** ft_clear :
 **  Free stack a and b
@@ -258,29 +262,48 @@ void	ft_put_pusw(t_pusw *ptr, int num_mv);
 ** ft_check_order :
 **  Check if stack_a is in the right order
 **
-**
-**
-**
-**
-**
-**
-**
-**
-**
+** ft_algo :
+**  Chose which algo to use depending of the number of numeros
 */
 int		ft_check_order(t_stack *tmp);
 void	ft_algo(t_pusw *ptr);
-int		ft_can_insert(t_pusw *pt, t_stack *tmp_a, int location, int tmp_prev);
 
-
+/*
+** ft_algo_below_five.c
+**
+** ft_algo_three :
+**  Order in function of the agencing
+**
+** ft_algo_below_five :
+**  Order for less or equal numbers of five
+*/
 void	ft_algo_below_five(t_pusw *ptr);
-
 void	ft_algo_three(t_pusw *ptr);
 
+/*
+** ft_can_insert.c
+**  Check if the number you want to insert can be at this place
+*/
+int		ft_can_insert(t_pusw *ptr, t_stack *tmp_a, int location, int tmp_prev);
+
+/*
+** ft_algo_below_hundred.c
+**  Order for less or equal numbers of hundred
+**  Chunk by 5
+*/
 void	ft_algo_below_hundred(t_pusw *ptr);
+
+/*
+** ft_algo_above_hundred.c
+**  Order for more numbers of hundred
+**  Chunck by 11
+*/
 void	ft_algo_above_hundred(t_pusw *ptr);
 
-
+/*
+** ft_rX_or_rrX .c
+**  Do the necessary and shortest movement of rX or rrX
+*/
 void	ft_ra_or_rra(t_pusw *ptr, t_stack *tmp);
 int		ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int top);
 int		ft_ra_or_rra_pa(t_pusw *ptr, t_stack *tmp);
@@ -292,27 +315,5 @@ int		ft_rb_or_rrb_restack(t_pusw *ptr, int top);
 **  (ra and rra, pa and pb)
 */
 void	ft_optimize(t_pusw *ptr);
-
-#endif
-
-#define TEST 0
-#if TEST
-# include <stdio.h>
-void	ft_test_move(t_pusw *ptr);
-void	do_nothing(char *str, ...);
-
-# define DEBUG 0
-# if DEBUG
-#  define DEB printf
-# else
-#  define DEB do_nothing
-# endif
-
-# define DEB_OP 0
-# if DEB_OP
-#  define DEB_O printf
-# else
-#  define DEB_O do_nothing
-# endif
 
 #endif
