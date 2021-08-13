@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 18:19:55 by user42            #+#    #+#             */
-/*   Updated: 2021/08/13 02:49:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:55:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static void	ft_three(t_pusw *ptr, int second, int third)
 		ft_ra_check_rb(ptr);
 }
 
-void		ft_algo_three(t_pusw *ptr)
+void	ft_algo_three(t_pusw *ptr)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	if (ft_check_order(ptr->a) == CHECK_OK)
 		return ;
@@ -73,7 +73,7 @@ void	ft_algo_below_five(t_pusw *ptr)
 	if (size == 2)
 	{
 		if (ptr->a->location > ptr->a->next->location)
-			ft_sa_check_sb(ptr);		
+			ft_sa_check_sb(ptr);
 	}
 	else if (size == 3)
 		ft_algo_three(ptr);

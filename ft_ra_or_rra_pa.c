@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 19:36:13 by user42            #+#    #+#             */
-/*   Updated: 2021/08/13 03:02:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:54:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_team_r(t_pusw *ptr, t_stack *tmp_a)
 	while (tmp_a)
 	{
 		if (ft_can_insert(ptr, tmp_a, ptr->b->location, tmp_prev) == CHECK_OK)
-			break;
+			break ;
 		tmp_prev = tmp_a->location;
 		tmp_a = tmp_a->next;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:43:57 by user42            #+#    #+#             */
-/*   Updated: 2021/07/16 11:54:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:32:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 #include <stdio.h>
 #include <time.h>
 
-int rand_a_number(int min, int max)
+int	rand_a_number(int min, int max)
 {
-	static int rand_is_seeded = 0;
+	static int	rand_is_seeded = 0;
 
-	if(!rand_is_seeded)
+	if (!rand_is_seeded)
 	{
 		srand(time(NULL));
 		rand_is_seeded = 1;
 	}
-	return rand() % (max - min + 1) + min;
+	return (rand() % (max - min + 1) + min);
 }
 
-void    ft_generator(int size, int min, int max)
+void	ft_generator(int size, int min, int max)
 {
-	int *tab;
-	int i;
-	int j;
-	int r;
+	int	*tab;
+	int	i;
+	int	j;
+	int	r;
 
 	if (max - min < size)
 	{
@@ -49,7 +49,7 @@ void    ft_generator(int size, int min, int max)
 		while (j < i)
 		{
 			if (tab[j] == r)
-				break;
+				break ;
 			j++;
 		}
 		if (tab[j] != r)
@@ -60,16 +60,14 @@ void    ft_generator(int size, int min, int max)
 	}
 	i = 0;
 	while (i < size)
-	{
 		printf("%i ", tab[i++]);
-	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac != 4)
 		printf("./a.out <nb of numero> <min> <max>");
 	else
 		ft_generator(atoi(av[1]), atoi(av[2]), atoi(av[3]));
-	return (0);    
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:29:32 by user42            #+#    #+#             */
-/*   Updated: 2021/08/11 20:51:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:54:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // tout doux :
 // - algo avec les chunks
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	char	**tab;
 	int		verbose;

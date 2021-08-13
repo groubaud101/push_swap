@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 20:28:31 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:48:34 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:28:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_sa_check_sb(t_pusw *ptr)
 		&& ptr->b->location < ptr->b->next->location)
 	{
 		ft_sb(ptr);
-		num_mv = SS;	
+		num_mv = SS;
 	}
 	else
 		num_mv = SA;
@@ -32,13 +32,13 @@ void	ft_sa_check_sb(t_pusw *ptr)
 
 void	ft_ra_check_rb(t_pusw *ptr)
 {
-	int num_mv;
+	int	num_mv;
 
 	if (ptr->b && ptr->b->next
 		&& ptr->b->location < ptr->b->next->location)
 	{
 		ft_rb(ptr);
-		num_mv = RR;	
+		num_mv = RR;
 	}
 	else
 		num_mv = RA;
@@ -50,13 +50,13 @@ void	ft_ra_check_rb(t_pusw *ptr)
 
 void	ft_rra_check_rrb(t_pusw *ptr)
 {
-	int num_mv;
+	int	num_mv;
 
 	if (ptr->b && ptr->b->next
 		&& ptr->b->location < ptr->last_b->location)
 	{
 		ft_rrb(ptr);
-		num_mv = RRR;	
+		num_mv = RRR;
 	}
 	else
 		num_mv = RRA;

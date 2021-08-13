@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:13:33 by user42            #+#    #+#             */
-/*   Updated: 2021/07/16 18:46:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:59:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	ft_atoi_no_overflow(const char *nbr)
 {
-	int		index;
-	int		neg;
+	int	index;
+	int	neg;
 	int	nb;
 	int	limit;
 

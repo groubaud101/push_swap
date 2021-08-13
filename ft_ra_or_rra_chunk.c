@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 19:52:34 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 23:24:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:53:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_team_r(t_stack *tmp, int top)
 	while (tmp)
 	{
 		if (tmp->location <= top)
-			break;
+			break ;
 		tmp = tmp->next;
 		i++;
 	}
@@ -54,7 +54,6 @@ int	ft_ra_or_rra_chunk(t_pusw *ptr, t_stack *tmp, int top)
 	team_r = ft_team_r(tmp, top);
 	if (team_r == ptr->size_a)
 		return (CHECK_ERR);
-
 	team_rr = ptr->size_a - ft_team_rr(tmp, top);
 	i = 0;
 	if (team_r < team_rr)

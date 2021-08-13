@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:48:13 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 22:56:55 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:29:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	ft_really_zero(char *nbr)
 	return (CHECK_ERR);
 }
 
-static t_stack *ft_last_a(t_stack *tmp)
+static t_stack	*ft_last_a(t_stack *tmp)
 {
 	if (!tmp)
 		return (NULL);

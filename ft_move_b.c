@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 17:28:30 by user42            #+#    #+#             */
-/*   Updated: 2021/07/27 19:49:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:43:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_sb(t_pusw *ptr)
 {
-	t_stack *second;
-	t_stack *first;
-	t_stack *third;
+	t_stack	*second;
+	t_stack	*first;
+	t_stack	*third;
 
 	if (!ptr->b || !ptr->b->next)
 		return (CHECK_ERR);
@@ -57,7 +57,7 @@ int	ft_rb(t_pusw *ptr)
 {
 	t_stack	*tmp;
 	t_stack	*first;
-	
+
 	if (!ptr->b || !ptr->b->next)
 		return (CHECK_ERR);
 	tmp = ptr->b;
@@ -75,7 +75,7 @@ int	ft_rrb(t_pusw *ptr)
 {
 	t_stack	*ex_first;
 	t_stack	*last;
-	
+
 	if (!ptr->b || !ptr->b->next)
 		return (CHECK_ERR);
 	ex_first = ptr->b;

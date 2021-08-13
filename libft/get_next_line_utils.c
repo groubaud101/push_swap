@@ -105,7 +105,7 @@ char	*ft_strjoin_gnl(char *s1, char const *s2)
 		return (NULL);
 	}
 	dest = (char *)malloc(sizeof(*dest)
-		* (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
+			* (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
 	if (!dest)
 		return (NULL);
 	dest[0] = '\0';

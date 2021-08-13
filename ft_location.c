@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:45:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/21 18:01:56 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:56:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	ft_first_run(t_pusw *ptr, t_index *index)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = ptr->a;
 	index->min = ptr->a->nb;
@@ -80,7 +80,7 @@ static int	ft_next_location(t_pusw *ptr, t_index *index, int i)
 	return (CHECK_OK);
 }
 
-int		ft_location(t_pusw *ptr)
+int	ft_location(t_pusw *ptr)
 {
 	int	i;
 
@@ -88,7 +88,7 @@ int		ft_location(t_pusw *ptr)
 	ft_first_run(ptr, &ptr->index);
 	while (i <= ptr->size_a / 2)
 	{
-		if (ft_next_location(ptr, &ptr->index, i) == CHECK_ERR) // check double nb
+		if (ft_next_location(ptr, &ptr->index, i) == CHECK_ERR)
 			return (CHECK_ERR);
 		i = i + 1;
 	}

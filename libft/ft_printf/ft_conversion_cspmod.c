@@ -78,7 +78,7 @@ int	ft_conv_mod(t_printf *ptr)
 	return (1);
 }
 
-int 	ft_conversion(t_printf *ptr, va_list params)
+int	ft_conversion(t_printf *ptr, va_list params)
 {
 	int	(*tab[8])(t_printf *ptr, va_list params);
 

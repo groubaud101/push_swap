@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 19:59:52 by user42            #+#    #+#             */
-/*   Updated: 2021/08/11 20:52:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/08/13 17:29:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_error(void)
 int	ft_check_error(char **tab)
 {
 	int	i;
-	int sign;
+	int	sign;
 	int	max;
 
 	if (tab == NULL)
