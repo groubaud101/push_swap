@@ -7,8 +7,7 @@ There is a script shell to launch and test :
 ./pusw_script.sh "numbers"
 
 ex : ./pusw_script.sh " 0 12 412 -50"
-
-
+_ _ _ _
 or ./pusw_script.sh <nb of numero> <min scale> <max scale> [verbose mode]
 
 ex : ./pusw_script.sh 5 -10 10
