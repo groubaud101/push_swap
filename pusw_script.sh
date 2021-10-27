@@ -1,7 +1,6 @@
 #!/bin/sh
 make
-
-FILE="file_test_opt1"
+gcc ft_generator.c
 
 if [ -n "$1" ] && [ -z "$2" ]
 then
